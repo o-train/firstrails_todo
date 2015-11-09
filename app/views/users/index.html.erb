@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<div style="background-color: #B8C0C8; width: 900px; height: 600px;
+text-align: center; color: #444F5B; font-family: courier;">
+<h1 style="padding-top:20px;">TO-DO LIST USERS</h1>
+<table style="width:900px;">
+  <thead style="font-size:1.5em;">
+    <tr style="background-color: #505D6B; color: white;" >
+      <th style="padding: 10px;">Username</th>
+      <th style="padding: 10px;">Email</th>
+
+      <th style="padding: 10px;" colspan="3">Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr style="background-color: #DDE1E5; color: #444F5B;">
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td> <%= link_to 'Show Alarms', user %></td>
+        <td> <%= link_to 'Edit', edit_user_path(user) %></td>
+        <td> <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<div style="text-align:center; width: 900px; font-size: 20px; background-color: #5C6C7B; color: #444F5B; font-family: courier; padding-top: 10px; padding-bottom: 10px;">
+
+<%= link_to 'New User', new_user_path, {:style=>'color:white;'} %>
+</div>

@@ -1,0 +1,97 @@
+<p id="notice"><%= notice %></p>
+
+<div style="background-color: #B8C0C8; width: 900px; height: 60px;
+text-align: center; color: #5C6C7B; font-family: courier; font-size: 2em;">
+<h2 style="padding:20px;">Events:</h2>
+</div>
+<div style="background-color: #E6E6FA; float:left; width:300px; height: 400px;">
+<p style="text-align: center; font-family: courier; font-size: 1.2em; color: #1D1D91;">
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p style="text-align: center; font-family: courier; font-size: 1em; color: #1D1D91;">
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+
+
+</div>
+
+
+
+<script type="text/javascript">
+function showDiv(hidde){
+document.getElementById(hidde).style.display = 'block';
+}
+function hideDiv(hider){
+	document.getElementById(hider).style.display = 'none';
+}
+function hideButton(button){
+	document.getElementById(button).style.display = 'none';
+}
+</script>
+<div style="background-color: #F0F8FF; float:left; width: 300px;height: 400px; text-align: center; color: #647280; font-family: courier;">
+<input type="button" name="answer" onclick="showDiv('hidde')">Add an Event: </input>
+
+<div id="hidde" style="display:none;">
+<%= form_for([@user, @user.events.build]) do |f| %>
+<p>
+	<strong>Event title: </strong>
+	<% f.label :title %> <br>
+	<%= f.text_field :title %> <br>
+</p>
+<p>
+	<strong>Date</strong>
+	<% f.label :plan_date%> <br>
+	<%= f.date_select :plan_date %> <br>
+</p>
+
+<p>
+	<strong>Time: </strong>
+	<% f.label :plan_time%> <br>
+	<%= f.time_select :plan_time %> <br>
+	</p>
+<p>
+	<strong>Description: </strong>
+	<% f.label :descr%> <br>
+	<%= f.text_field :descr %> <br>
+	</p>
+
+<p>
+	<strong>Alarm </strong>
+	<% f.label :alarm%> <br>
+	<%= f.check_box :alarm %> <br>
+	</p>
+
+<%=f.submit %>
+<% end %>
+</div>
+</div>
+
+<div style="background-color: #EBEBFB; float:left; width: 300px;height:400px; text-align: center; color: #647280; font-family: courier;">
+
+<input type="button" name="answer" onclick="showDiv('hider')" ondblclick="hideDiv('hide')">Show events: </input>
+
+<div id="hider" style="display:none;">
+<h1>To-do Items: </h1>
+<% @user.events.each do |comment| %>
+
+<p>
+	<strong>To-Do: </strong>
+	<%= comment.title %>
+</p>
+
+<p>
+	<strong>Date: </strong>
+	<%= comment.plan_date %>
+</p>
+
+<% end %>
+</div>
+</div>
+<div style="background-color: #B8C0C8; width: 900px; height: 60px; font-family: courier; font-size:2em; text-align:center; clear:left;">
+<br>
+		<%= link_to 'Back', users_path %>
+</div>
