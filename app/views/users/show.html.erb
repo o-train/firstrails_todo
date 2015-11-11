@@ -12,16 +12,16 @@
 
 
 <div class="links">
-<el onmouseover= showDiv("dropmenu")>About</el>
-<el id="dropmenu" style="display:none;" onmouseout=hideDiv("dropmenu")>
+<el onmouseenter= showDiv("dropmenu")>About</el>
+<el id="dropmenu" style="display:none;" onmouseleave=hideDiv("dropmenu")>
 More about the App <br />
 More about the Dev
 </el>
 </div>
 
-<div class="links" onmouseover= showDiv("dropbar")>
+<div class="links" onmouseenter= showDiv("dropbar")>
 Users
-<el id="dropbar" style="display:none;" onmouseout=hideDiv("dropbar")>
+<el id="dropbar" style="display:none;" onmouseleave=hideDiv("dropbar")>
 <%= link_to 'New User', new_user_path %> <br />
 <%= link_to 'Alarms', users_path %> 
 </el>

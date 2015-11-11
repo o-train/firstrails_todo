@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'pages/about'
 
+
   resources :users do
     resources :events
   end
