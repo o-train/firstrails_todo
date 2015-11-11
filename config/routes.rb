@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+
+  get 'pages/about'
+
   resources :users do
     resources :events
   end
-  #THIS CREATES A NESTED RESOURCE
+  #THIS CREATES A NESTED REmap.SOURCE
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+ root :to => "pages#home"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
