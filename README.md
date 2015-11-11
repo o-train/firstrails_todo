@@ -1,5 +1,5 @@
 # firstrails_todo
-todo_list need to work on not depending on css
+todo listing
+not finished but cbf doing more as my structure is flawed....
 
-should put that in my to do list....
-zing
+time to move on, it's a sad day :(
